@@ -1,0 +1,12 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Przedziały ufności: funkcje centralne i odwracanie nierówności</title><link rel="stylesheet" href="../style.css"></head><body><main><div class="shell"><div class="hero"><span class="lesson-num">Lista 9</span><h1>Przedziały ufności: funkcje centralne i odwracanie nierówności</h1><p>Znaleźć funkcję centralną i zamienić zdarzenie probabilistyczne w przedział dla parametru.</p><nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="done"></a><a href="0003-rao-blackwell-umvue.html" class="done"></a><a href="0004-przedzialy-ufnosci.html" class="active"></a><a href="0005-testy-hipotez.html"></a></nav></div><article><div class="card"><h2>Źródło główne</h2><p>Notatki: Estymacja przedziałowa, funkcje centralne, najkrótsze przedziały ufności.</p><p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p></div><div class="card"><h2>Znaczenie</h2><p>Parametr θ jest stały. Losowy jest przedział [L(X),U(X)]. Procedura ma pokrycie co najmniej 1−α.</p><pre class="formula">Pθ(θ∈[L(X),U(X)]) ≥ 1−α</pre>
+<h2>Funkcja centralna</h2><div class="scheme"><b>Q(X;θ)</b> zależy od próby i parametru, ale jej rozkład nie zależy od θ.</div><pre class="formula">1. Wybierz a,b: P(a≤Q(X;θ)≤b)≥1−α.
+2. Rozwiąż a≤Q(X;θ)≤b względem θ.
+3. Odczytaj [L(X),U(X)].</pre>
+<h2>Normalny: σ znana</h2><div class="example"><pre class="formula">X_i~N(μ,σ²), σ znana
+Q=√n(X̄−μ)/σ ~ N(0,1)
+μ∈[X̄−σz_{α/2}/√n, X̄+σz_{α/2}/√n]</pre></div>
+<h2>Normalny: σ nieznana</h2><div class="example"><pre class="formula">Q=√n(X̄−μ)/S ~ t_{n−1}
+μ∈[X̄−S t_{n−1,α/2}/√n,
+   X̄+S t_{n−1,α/2}/√n]</pre></div>
+<h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie 1−α można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p>
+<h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na Q: normalny, t, χ², transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div><div class="box small"><b>Jak się uczyć:</b> zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, zapytaj mnie o dokładnie ten krok.</div></div></article></div></main></body></html>

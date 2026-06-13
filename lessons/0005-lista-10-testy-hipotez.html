@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Testowanie hipotez: Neyman–Pearson, MLR, UMP, LR, p-value</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="../katex/katex.min.css">
 </head>
 <body>
@@ -14,23 +14,42 @@
 <p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
 <nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="done"></a><a href="0003-rao-blackwell-umvue.html" class="done"></a><a href="0004-przedzialy-ufnosci.html" class="done"></a><a href="0005-testy-hipotez.html" class="active"></a></nav>
 </header>
-<article><section class="card">
+
+<div class="card">
 <h2>Cel lekcji</h2>
 <p>Przejść od hipotez do obszaru krytycznego i dobrać próg dający rozmiar α.</p>
 <p class="muted">Źródło główne: Notatki: Testowanie hipotez, MLR/UMP, p-value, hipotezy dwustronne, testy nieobciążone, LR.</p>
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
-</section><section class="card"><h2>Słownik</h2><ul><li>φ(x) — test; dla niezrandomizowanego φ∈{0,1}.</li><li>Zbiór krytyczny — tam, gdzie φ(x)=1.</li><li>Moc: βφ(θ)=Eθφ(X).</li><li>Rozmiar: sup po θ z H₀ z funkcji mocy.</li></ul></section><section class="card"><h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><div class="formula">$$
+</div>
+
+<div class="card"><h2>Słownik</h2><ul><li>φ(x) — test; dla niezrandomizowanego φ∈{0,1}.</li><li>Zbiór krytyczny — tam, gdzie φ(x)=1.</li><li>Moc: βφ(θ)=Eθφ(X).</li><li>Rozmiar: sup po θ z H₀ z funkcji mocy.</li></ul></div>
+
+<div class="card"><h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><div class="formula">$$
 odrzucaj H₀, gdy f₁(x) > c f₀(x)
-$$</div>Stałą c dobierasz tak, żeby E₀φ=α.</div></section><section class="card"><h2>MLR i Karlin–Rubin</h2><div class="formula">$$
+$$</div>Stałą c dobierasz tak, żeby E₀φ=α.</div></div>
+
+<div class="card"><h2>MLR i Karlin–Rubin</h2><div class="formula">$$
 H₀: θ≤θ₀ vs H₁: θ&gt;θ₀\\φ*(x)=1 gdy T(x)&gt;c,\\φ*(x)=γ gdy T(x)=c,\\φ*(x)=0 gdy T(x)&lt;c.\\Dobierz c,γ z β(θ₀)=α.
-$$</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(μ,σ²), σ² znana, H₀:μ≤μ₀ vs H₁:μ&gt;μ₀, odrzucasz dla dużego X̄. Próg: cα=μ₀+zασ/√n.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla H₀:p≤p₀ vs H₁:p&gt;p₀ odrzucasz dla dużej sumy T=ΣXᵢ. W dyskretnym przypadku może pojawić się randomizacja γ.</div></section><section class="card"><h2>p-value</h2><div class="formula">$$
+$$</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(μ,σ²), σ² znana, H₀:μ≤μ₀ vs H₁:μ&gt;μ₀, odrzucasz dla dużego X̄. Próg: cα=μ₀+zασ/√n.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla H₀:p≤p₀ vs H₁:p&gt;p₀ odrzucasz dla dużej sumy T=ΣXᵢ. W dyskretnym przypadku może pojawić się randomizacja γ.</div></div>
+
+<div class="card"><h2>p-value</h2><div class="formula">$$
 p-value = inf { α : x∈B_α }\\Dla B_α={T(x)&gt;c_α}:\\p-value = sup_{θ∈H₀} Pθ(T(X)≥T(x_obs))
-$$</div></section><section class="card"><h2>Dwustronność i UMPU</h2><p>Dla H₀:θ=θ₀ vs θ≠θ₀ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p></section><section class="card"><h2>Test LR</h2><div class="scheme"><div class="formula">$$
+$$</div></div>
+
+<div class="card"><h2>Dwustronność i UMPU</h2><p>Dla H₀:θ=θ₀ vs θ≠θ₀ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p></div>
+
+<div class="card"><h2>Test LR</h2><div class="scheme"><div class="formula">$$
 λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)\\Odrzucaj H₀, gdy λ(x)&lt;c.
-$$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(θ,1), H₀:θ=θ₀ vs H₁:θ≠θ₀, λ(x)=exp[−n(X̄−θ₀)²/2], więc odrzucasz dla dużego |X̄−θ₀|.</div></section><section class="card"><h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz H₀ i H₁. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru α.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
+$$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(θ,1), H₀:θ=θ₀ vs H₁:θ≠θ₀, λ(x)=exp[−n(X̄−θ₀)²/2], więc odrzucasz dla dużego |X̄−θ₀|.</div></div>
+
+<div class="card"><h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz H₀ i H₁. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru α.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div></div>
+
+<div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
+
+<nav class="nav">
 <p>Poprzednia lekcja: <a href="0004-przedzialy-ufnosci.html">Przedziały ufności: funkcje centralne i odwracanie nierówności</a></p>
 <p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0005-testy-hipotez.html</code></p>
-</nav></article>
+</nav>
 <script src="../katex/katex.min.js"></script>
 <script src="../katex/auto-render.min.js"></script>
 <script>

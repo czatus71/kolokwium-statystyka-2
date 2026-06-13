@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Przedziały ufności: funkcje centralne i odwracanie nierówności</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="../katex/katex.min.css">
 </head>
 <body>
@@ -14,23 +14,40 @@
 <p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
 <nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="done"></a><a href="0003-rao-blackwell-umvue.html" class="done"></a><a href="0004-przedzialy-ufnosci.html" class="active"></a><a href="0005-testy-hipotez.html"></a></nav>
 </header>
-<article><section class="card">
+
+<div class="card">
 <h2>Cel lekcji</h2>
 <p>Znaleźć funkcję centralną i zamienić zdarzenie probabilistyczne w przedział dla parametru.</p>
 <p class="muted">Źródło główne: Notatki: Estymacja przedziałowa, funkcje centralne, najkrótsze przedziały ufności.</p>
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
-</section><section class="card"><h2>Znaczenie</h2><p>Parametr θ jest stały. Losowy jest przedział [L(X),U(X)]. Procedura ma pokrycie co najmniej 1−α.</p><div class="formula">$$
+</div>
+
+<div class="card"><h2>Znaczenie</h2><p>Parametr θ jest stały. Losowy jest przedział [L(X),U(X)]. Procedura ma pokrycie co najmniej 1−α.</p><div class="formula">$$
 Pθ(θ∈[L(X),U(X)]) ≥ 1−α
-$$</div></section><section class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>Q(X;θ)</b> zależy od próby i parametru, ale jej rozkład nie zależy od θ.</div><div class="formula">$$
+$$</div></div>
+
+<div class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>Q(X;θ)</b> zależy od próby i parametru, ale jej rozkład nie zależy od θ.</div><div class="formula">$$
 1. Wybierz a,b: P(a≤Q(X;θ)≤b)≥1−α.\\2. Rozwiąż a≤Q(X;θ)≤b względem θ.\\3. Odczytaj [L(X),U(X)].
-$$</div></section><section class="card"><h2>Normalny: σ znana</h2><div class="example"><div class="formula">$$
+$$</div></div>
+
+<div class="card"><h2>Normalny: σ znana</h2><div class="example"><div class="formula">$$
 X_i~N(μ,σ²), σ znana\\Q=√n(X̄−μ)/σ ~ N(0,1)\\μ∈[X̄−σz_{α/2}/√n, X̄+σz_{α/2}/√n]
-$$</div></div></section><section class="card"><h2>Normalny: σ nieznana</h2><div class="example"><div class="formula">$$
+$$</div></div></div>
+
+<div class="card"><h2>Normalny: σ nieznana</h2><div class="example"><div class="formula">$$
 Q=√n(X̄−μ)/S ~ t_{n−1}\\μ∈[X̄−S t_{n−1,α/2}/√n,\\   X̄+S t_{n−1,α/2}/√n]
-$$</div></div></section><section class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie 1−α można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></section><section class="card"><h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na Q: normalny, t, χ², transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
+$$</div></div></div>
+
+<div class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie 1−α można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></div>
+
+<div class="card"><h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na Q: normalny, t, χ², transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div></div>
+
+<div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
+
+<nav class="nav">
 <p>Poprzednia lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a> | Następna lekcja: <a href="0005-testy-hipotez.html">Testowanie hipotez: Neyman–Pearson, MLR, UMP, LR, p-value</a></p>
 <p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0004-przedzialy-ufnosci.html</code></p>
-</nav></article>
+</nav>
 <script src="../katex/katex.min.js"></script>
 <script src="../katex/auto-render.min.js"></script>
 <script>

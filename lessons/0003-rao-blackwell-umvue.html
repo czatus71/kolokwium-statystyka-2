@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</title>
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="../katex/katex.min.css">
 </head>
 <body>
@@ -14,19 +14,38 @@
 <p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
 <nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="done"></a><a href="0003-rao-blackwell-umvue.html" class="active"></a><a href="0004-przedzialy-ufnosci.html"></a><a href="0005-testy-hipotez.html"></a></nav>
 </header>
-<article><section class="card">
+
+<div class="card">
 <h2>Cel lekcji</h2>
 <p>Skompresować próbę do statystyki i użyć tej statystyki do ulepszania estymatorów.</p>
 <p class="muted">Źródło główne: Notatki: Redukcja statystyk, Rao-Blackwell, statystyka swobodna, estymatory UMVUE.</p>
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
-</section><section class="card"><h2>Intuicja</h2><p>Dostateczność: po poznaniu T(X), reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji g(T) o średniej zero dla wszystkich parametrów.</p></section><section class="card"><h2>Faktoryzacja</h2><div class="scheme"><div class="formula">$$
+</div>
+
+<div class="card"><h2>Intuicja</h2><p>Dostateczność: po poznaniu T(X), reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji g(T) o średniej zero dla wszystkich parametrów.</p></div>
+
+<div class="card"><h2>Faktoryzacja</h2><div class="scheme"><div class="formula">$$
 f(x;θ)=g_θ(T(x))·h(x)
-$$</div>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla X₁,…,Xₙ~B(1,p), prawdopodobieństwo próby zależy od p przez ΣXᵢ, więc T=ΣXᵢ jest dostateczna.</div></section><section class="card"><h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div></section><section class="card"><h2>Zupełność</h2><div class="formula">$$
+$$</div>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla X₁,…,Xₙ~B(1,p), prawdopodobieństwo próby zależy od p przez ΣXᵢ, więc T=ΣXᵢ jest dostateczna.</div></div>
+
+<div class="card"><h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div></div>
+
+<div class="card"><h2>Zupełność</h2><div class="formula">$$
 T zupełna ⇔ Eθ[g(T)]=0 dla każdego θ\\implikuje Pθ(g(T)=0)=1 dla każdego θ.
-$$</div><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p></section><section class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div></section><section class="card"><h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></section><section class="card"><h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
+$$</div><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p></div>
+
+<div class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div></div>
+
+<div class="card"><h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></div>
+
+<div class="card"><h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div></div>
+
+<div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
+
+<nav class="nav">
 <p>Poprzednia lekcja: <a href="0002-redukcja-statystyk.html">Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</a> | Następna lekcja: <a href="0004-przedzialy-ufnosci.html">Przedziały ufności: funkcje centralne i odwracanie nierówności</a></p>
 <p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0003-rao-blackwell-umvue.html</code></p>
-</nav></article>
+</nav>
 <script src="../katex/katex.min.js"></script>
 <script src="../katex/auto-render.min.js"></script>
 <script>

@@ -10,6 +10,7 @@
 </head>
 <body>
 <header>
+<a class="app-title" href="index.html">Statystyka</a>
 <span class="lesson-num">Wersja jednoplikowa</span>
 <h1>Statystyka matematyczna — listy 6–10</h1>
 <p>Najlepsza wersja na telefon: wszystko jest w jednym HTML-u, więc Androidowe content:// nie psuje linków.</p>
@@ -31,23 +32,25 @@ $$</div></section><section class="card"><h2>MLE</h2><div class="scheme"><ol><li>
 l(λ)=C·λ^{Σx_i}e^{-nλ}\\L(λ)=C_0+(Σx_i)lnλ−nλ\\L′(λ)=Σx_i/λ−n=0\\λ̂=X̄
 $$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla $U(\theta-1/2,\theta+1/2)$ z notatek cały przedział może maksymalizować wiarygodność.</div></section><section class="card"><h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów $\hat\mu$ i $\hat\sigma^2$ dla normalnego.</li><li>Wyprowadź MLE $\hat\lambda=\bar X$ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z $F_\theta$.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
 <p>Następna lekcja: <a href="0002-redukcja-statystyk.html">Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0001-estymacja.html</code></p>
 </nav></section><section id="l2"><section class="card">
 <h2>Cel lekcji</h2>
 <p>Umieć powiedzieć nie tylko „to jest estymator”, ale czy jest dobry i w jakim sensie.</p>
 <p class="muted">Źródło główne: Notatki: Ocena jakości estymatorów, narzędzia asymptotyczne, nierówność Cramera-Rao, ciągi estymatorów.</p>
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </section><section class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: $E_\theta T=g(\theta)$.</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: $T_n\to g(\theta)$ w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: $R(T,\theta)=E_\theta L(T,\theta)$, zwykle MSE.</li></ol></div></section><section class="card"><h2>Obciążenie i MSE</h2><div class="formula">$$
-b(θ)=Eθ[T]−g(θ)\\MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²
+b(\theta)=E_\theta[T]-g(\theta)\\
+\operatorname{MSE}(T)=E_\theta[(T-g(\theta))^2]\\
+\operatorname{MSE}(T)=\operatorname{Var}_\theta(T)+b(\theta)^2
 $$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja $p$ w $\operatorname{Bin}(n,p)$.</b><br>$d_1=X/n$ ma ryzyko $p(1-p)/n$. Estymator $d_2=(X+\frac{1}{2}\sqrt{n})/(n+\sqrt{n})$ ma ryzyko $1/[4(\sqrt{n}+1)^2]$. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></section><section class="card"><h2>Zgodność i tempo</h2><div class="formula">$$
 T_n \to θ\quad\Longleftrightarrow\quad P_θ(|T_n−θ|≥ε)→0
 $$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo $\sqrt{n}$ zwykle bierze się z CTG.</p></section><section class="card"><h2>Slutsky i metoda delta</h2><div class="formula">$$
 a_n(X_n−c) ⇒ V,\quad g′(c)≠0\\a_n(g(X_n)−g(c)) ⇒ g′(c)V
 $$</div><p>Używaj, gdy znasz graniczny rozkład $T_n$, ale zadanie pyta o funkcję $g(T_n)$.</p></section><section class="card"><h2>Cramer–Rao</h2><div class="formula">$$
-Var_θ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=E_θ[(∂/∂θ ln f(X;θ))²]\\I_n(θ)=nI_1(θ)
+\operatorname{Var}_\theta[T(X)] \ge \frac{(g'(\theta))^2}{I(\theta)}\\
+I(\theta)=E_\theta\left[\left(\frac{\partial}{\partial\theta}\ln f(X;\theta)\right)^2\right]\\
+I_n(\theta)=nI_1(\theta)
 $$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_i\sim B(1,p)$, $\bar X$ jest efektywnym estymatorem $p$, bo pochodna log-wiarygodności jest proporcjonalna do $\bar X-p$.</div></section><section class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego $T$ policz $E[T]$, $\operatorname{Var}(T)$, MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
 <p>Poprzednia lekcja: <a href="0001-estymacja.html">Estymacja parametryczna: momenty, kwantyle, plug-in, MLE</a> | Następna lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0002-redukcja-statystyk.html</code></p>
 </nav></section><section id="l3"><section class="card">
 <h2>Cel lekcji</h2>
 <p>Skompresować próbę do statystyki i użyć tej statystyki do ulepszania estymatorów.</p>
@@ -59,23 +62,26 @@ $$</div>Jeśli cała zależność od $\theta$ przechodzi przez $T(x)$, to $T$ je
 E_θ[g(T)]=0\\P_θ(g(T)=0)=1
 $$</div><p>Dla $T=\sum_i X_i\sim\operatorname{Bin}(n,p)$, warunek $E_p g(T)=0$ daje wielomian równy zero dla wszystkich $p$, więc współczynniki muszą być zerowe.</p></section><section class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź $T$ — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator $W$ funkcji $g(\theta)$.</li><li>Policz $\varphi(T)=E[W\mid T]$.</li><li>Z Lehmann–Scheffé: $\varphi(T)$ jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i $g(\lambda)=P(X_1=3)$, weź $W=1_{\{X_1=3\}}$, $T=\sum_i X_i$ i policz $P(X_1=3\mid T=t)$.</div></section><section class="card"><h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></section><section class="card"><h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
 <p>Poprzednia lekcja: <a href="0002-redukcja-statystyk.html">Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</a> | Następna lekcja: <a href="0004-przedzialy-ufnosci.html">Przedziały ufności: funkcje centralne i odwracanie nierówności</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0003-rao-blackwell-umvue.html</code></p>
 </nav></section><section id="l4"><section class="card">
 <h2>Cel lekcji</h2>
 <p>Znaleźć funkcję centralną i zamienić zdarzenie probabilistyczne w przedział dla parametru.</p>
 <p class="muted">Źródło główne: Notatki: Estymacja przedziałowa, funkcje centralne, najkrótsze przedziały ufności.</p>
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </section><section class="card"><h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><div class="formula">$$
-Pθ(θ∈[L(X),U(X)]) ≥ 1−α
+P_\theta\{\theta\in[L(X),U(X)]\}\ge 1-\alpha
 $$</div></section><section class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>$Q(X;\theta)$</b> zależy od próby i parametru, ale jej rozkład nie zależy od $\theta$.</div><div class="formula">$$
-P(a≤Q(X;θ)≤b)≥1−α\\a≤Q(X;θ)≤b\\[L(X),U(X)]
+P(a\le Q(X;\theta)\le b)\ge 1-\alpha\\
+a\le Q(X;\theta)\le b\\
+[L(X),U(X)]
 $$</div></section><section class="card"><h2>Normalny: $\sigma$ znana</h2><div class="example"><div class="formula">$$
-X_i~N(μ,σ²)\\Q=$\sqrt{n}$(X̄−μ)/σ ~ N(0,1)\\μ∈[X̄−σz_{α/2}/$\sqrt{n}$, X̄+σz_{α/2}/$\sqrt{n}$]
+X_i\sim N(\mu,\sigma^2)\\
+Q=\frac{\sqrt{n}(\bar X-\mu)}{\sigma}\sim N(0,1)\\
+\mu\in\left[\bar X-\frac{\sigma z_{\alpha/2}}{\sqrt n},\;\bar X+\frac{\sigma z_{\alpha/2}}{\sqrt n}\right]
 $$</div></div></section><section class="card"><h2>Normalny: $\sigma$ nieznana</h2><div class="example"><div class="formula">$$
-Q=$\sqrt{n}$(X̄−μ)/S ~ t_{n−1}\\μ∈[X̄−S t_{n−1,α/2}/$\sqrt{n}$,\\   X̄+S t_{n−1,α/2}/$\sqrt{n}$]
+Q=\frac{\sqrt{n}(\bar X-\mu)}{S}\sim t_{n-1}\\
+\mu\in\left[\bar X-\frac{S t_{n-1,\alpha/2}}{\sqrt n},\;\bar X+\frac{S t_{n-1,\alpha/2}}{\sqrt n}\right]
 $$</div></div></section><section class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie $1-\alpha$ można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></section><section class="card"><h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na $Q$: normalny, $t$, $\chi^2$, transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
 <p>Poprzednia lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a> | Następna lekcja: <a href="0005-testy-hipotez.html">Testowanie hipotez: Neyman–Pearson, MLR, UMP, LR, p-value</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0004-przedzialy-ufnosci.html</code></p>
 </nav></section><section id="l5"><section class="card">
 <h2>Cel lekcji</h2>
 <p>Przejść od hipotez do obszaru krytycznego i dobrać próg dający rozmiar $\alpha$.</p>
@@ -91,7 +97,6 @@ $$</div></section><section class="card"><h2>Dwustronność i UMPU</h2><p>Dla $H_
 λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)\\λ(x)&lt;c
 $$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla $X_i\sim N(\theta,1)$, $H_0:\theta=\theta_0$ vs $H_1:\theta\ne\theta_0$, $\lambda(x)=\exp[-n(\bar X-\theta_0)^2/2]$, więc odrzucasz dla dużego $|\bar X-\theta_0|$.</div></section><section class="card"><h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz $H_0$ i $H_1$. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru $\alpha$.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
 <p>Poprzednia lekcja: <a href="0004-przedzialy-ufnosci.html">Przedziały ufności: funkcje centralne i odwracanie nierówności</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0005-testy-hipotez.html</code></p>
 </nav></section>
 <section class="card" id="sciaga">
 <h2>Ściąga końcowa</h2>
@@ -99,7 +104,6 @@ $$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od na
 </section>
 <nav class="nav">
 <p><a href="index.html">Start</a> · <a href="reference/statystyka-listy-6-10.html">Ściąga</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome kurs-statystyka-full.html</code></p>
 </nav>
 </main>
 <script src="katex/katex.min.js"></script>

@@ -9,9 +9,10 @@
 </head>
 <body>
 <header>
+<a class="app-title" href="../index.html">Statystyka</a>
 <span class="lesson-num">Lekcja 4 z 5</span>
 <h1>Przedziały ufności: funkcje centralne i odwracanie nierówności</h1>
-<p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
+<p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6–10)</p>
 <nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="done"></a><a href="0003-rao-blackwell-umvue.html" class="done"></a><a href="0004-przedzialy-ufnosci.html" class="active"></a><a href="0005-testy-hipotez.html"></a></nav>
 </header>
 
@@ -23,19 +24,24 @@
 </div>
 
 <div class="card"><h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><div class="formula">$$
-Pθ(θ∈[L(X),U(X)]) ≥ 1−α
+P_\theta\{\theta\in[L(X),U(X)]\}\ge 1-\alpha
 $$</div></div>
 
 <div class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>$Q(X;\theta)$</b> zależy od próby i parametru, ale jej rozkład nie zależy od $\theta$.</div><div class="formula">$$
-P(a≤Q(X;θ)≤b)≥1−α\\a≤Q(X;θ)≤b\\[L(X),U(X)]
+P(a\le Q(X;\theta)\le b)\ge 1-\alpha\\
+a\le Q(X;\theta)\le b\\
+[L(X),U(X)]
 $$</div></div>
 
 <div class="card"><h2>Normalny: $\sigma$ znana</h2><div class="example"><div class="formula">$$
-X_i~N(μ,σ²)\\Q=$\sqrt{n}$(X̄−μ)/σ ~ N(0,1)\\μ∈[X̄−σz_{α/2}/$\sqrt{n}$, X̄+σz_{α/2}/$\sqrt{n}$]
+X_i\sim N(\mu,\sigma^2)\\
+Q=\frac{\sqrt{n}(\bar X-\mu)}{\sigma}\sim N(0,1)\\
+\mu\in\left[\bar X-\frac{\sigma z_{\alpha/2}}{\sqrt n},\;\bar X+\frac{\sigma z_{\alpha/2}}{\sqrt n}\right]
 $$</div></div></div>
 
 <div class="card"><h2>Normalny: $\sigma$ nieznana</h2><div class="example"><div class="formula">$$
-Q=$\sqrt{n}$(X̄−μ)/S ~ t_{n−1}\\μ∈[X̄−S t_{n−1,α/2}/$\sqrt{n}$,\\   X̄+S t_{n−1,α/2}/$\sqrt{n}$]
+Q=\frac{\sqrt{n}(\bar X-\mu)}{S}\sim t_{n-1}\\
+\mu\in\left[\bar X-\frac{S t_{n-1,\alpha/2}}{\sqrt n},\;\bar X+\frac{S t_{n-1,\alpha/2}}{\sqrt n}\right]
 $$</div></div></div>
 
 <div class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie $1-\alpha$ można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></div>
@@ -46,7 +52,6 @@ $$</div></div></div>
 
 <nav class="nav">
 <p>Poprzednia lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a> | Następna lekcja: <a href="0005-testy-hipotez.html">Testowanie hipotez: Neyman–Pearson, MLR, UMP, LR, p-value</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0004-przedzialy-ufnosci.html</code></p>
 </nav>
 <script src="../katex/katex.min.js"></script>
 <script src="../katex/auto-render.min.js"></script>

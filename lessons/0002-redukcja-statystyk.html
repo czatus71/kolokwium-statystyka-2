@@ -9,9 +9,10 @@
 </head>
 <body>
 <header>
+<a class="app-title" href="../index.html">Statystyka</a>
 <span class="lesson-num">Lekcja 2 z 5</span>
 <h1>Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</h1>
-<p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
+<p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6–10)</p>
 <nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="active"></a><a href="0003-rao-blackwell-umvue.html"></a><a href="0004-przedzialy-ufnosci.html"></a><a href="0005-testy-hipotez.html"></a></nav>
 </header>
 
@@ -25,7 +26,9 @@
 <div class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: $E_\theta T=g(\theta)$.</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: $T_n\to g(\theta)$ w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: $R(T,\theta)=E_\theta L(T,\theta)$, zwykle MSE.</li></ol></div></div>
 
 <div class="card"><h2>Obciążenie i MSE</h2><div class="formula">$$
-b(θ)=Eθ[T]−g(θ)\\MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²
+b(\theta)=E_\theta[T]-g(\theta)\\
+\operatorname{MSE}(T)=E_\theta[(T-g(\theta))^2]\\
+\operatorname{MSE}(T)=\operatorname{Var}_\theta(T)+b(\theta)^2
 $$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja $p$ w $\operatorname{Bin}(n,p)$.</b><br>$d_1=X/n$ ma ryzyko $p(1-p)/n$. Estymator $d_2=(X+\frac{1}{2}\sqrt{n})/(n+\sqrt{n})$ ma ryzyko $1/[4(\sqrt{n}+1)^2]$. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></div>
 
 <div class="card"><h2>Zgodność i tempo</h2><div class="formula">$$
@@ -37,7 +40,9 @@ a_n(X_n−c) ⇒ V,\quad g′(c)≠0\\a_n(g(X_n)−g(c)) ⇒ g′(c)V
 $$</div><p>Używaj, gdy znasz graniczny rozkład $T_n$, ale zadanie pyta o funkcję $g(T_n)$.</p></div>
 
 <div class="card"><h2>Cramer–Rao</h2><div class="formula">$$
-Var_θ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=E_θ[(∂/∂θ ln f(X;θ))²]\\I_n(θ)=nI_1(θ)
+\operatorname{Var}_\theta[T(X)] \ge \frac{(g'(\theta))^2}{I(\theta)}\\
+I(\theta)=E_\theta\left[\left(\frac{\partial}{\partial\theta}\ln f(X;\theta)\right)^2\right]\\
+I_n(\theta)=nI_1(\theta)
 $$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_i\sim B(1,p)$, $\bar X$ jest efektywnym estymatorem $p$, bo pochodna log-wiarygodności jest proporcjonalna do $\bar X-p$.</div></div>
 
 <div class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego $T$ policz $E[T]$, $\operatorname{Var}(T)$, MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></div>
@@ -46,7 +51,6 @@ $$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_i\sim B(1,p)$
 
 <nav class="nav">
 <p>Poprzednia lekcja: <a href="0001-estymacja.html">Estymacja parametryczna: momenty, kwantyle, plug-in, MLE</a> | Następna lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a></p>
-<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0002-redukcja-statystyk.html</code></p>
 </nav>
 <script src="../katex/katex.min.js"></script>
 <script src="../katex/auto-render.min.js"></script>

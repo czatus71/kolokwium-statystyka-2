@@ -67,7 +67,7 @@ implikuje Pθ(g(T)=0)=1 dla każdego θ.</pre><p>Dla $T=\sum_i X_i\sim\operatorn
 'slug':'0004-lista-9-przedzialy-ufnosci.html','list':'Lista 9','title':'Przedziały ufności: funkcje centralne i odwracanie nierówności',
 'source':'Notatki: Estymacja przedziałowa, funkcje centralne, najkrótsze przedziały ufności.',
 'goal':'Znaleźć funkcję centralną i zamienić zdarzenie probabilistyczne w przedział dla parametru.',
-'body':'''<h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><pre class="formula">Pθ(θ∈[L(X),U(X)]) ≥ 1−α</pre>
+'body':'''<h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><pre class="formula">P_\theta\{\theta\in[L(X),U(X)]\}\ge 1-\alpha</pre>
 <h2>Funkcja centralna</h2><div class="scheme"><b>$Q(X;\theta)$</b> zależy od próby i parametru, ale jej rozkład nie zależy od $\theta$.</div><pre class="formula">1. Wybierz a,b: P(a≤Q(X;θ)≤b)≥1−α.
 2. Rozwiąż a≤Q(X;θ)≤b względem θ.
 3. Odczytaj [L(X),U(X)].</pre>

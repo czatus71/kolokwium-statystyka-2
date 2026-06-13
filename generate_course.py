@@ -85,7 +85,7 @@ Q=√n(X̄−μ)/σ ~ N(0,1)
 'source':'Notatki: Testowanie hipotez, MLR/UMP, p-value, hipotezy dwustronne, testy nieobciążone, LR.',
 'goal':'Przejść od hipotez do obszaru krytycznego i dobrać próg dający rozmiar α.',
 'body':'''<h2>Słownik</h2><ul><li>φ(x) — test; dla niezrandomizowanego φ∈{0,1}.</li><li>Zbiór krytyczny — tam, gdzie φ(x)=1.</li><li>Moc: βφ(θ)=Eθφ(X).</li><li>Rozmiar: sup po θ z H₀ z funkcji mocy.</li></ul>
-<h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><pre class="formula">odrzucaj H₀, gdy f₁(x) > c f₀(x)</pre>Stałą c dobierasz tak, żeby E₀φ=α.</div>
+<h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><pre class="formula">f₁(x) > c f₀(x)</pre>Stałą c dobierasz tak, żeby E₀φ=α.</div>
 <h2>MLR i Karlin–Rubin</h2><pre class="formula">H₀: θ≤θ₀ vs H₁: θ&gt;θ₀
 φ*(x)=1 gdy T(x)&gt;c,
 φ*(x)=γ gdy T(x)=c,

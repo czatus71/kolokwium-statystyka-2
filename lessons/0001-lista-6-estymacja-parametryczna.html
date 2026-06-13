@@ -25,7 +25,7 @@
 <div class="card"><h2>Mapa decyzyjna</h2><div class="scheme"><b>Najpierw rozpoznaj typ zadania.</b><ol><li>Masz momenty teoretyczne? Użyj metody momentów.</li><li>Pojawia się mediana, kwartyl albo procent? Użyj metody kwantyli.</li><li>Parametr jest funkcjonałem dystrybuanty, np. E φ(X)? Użyj plug-in.</li><li>Masz gęstość lub pmf i polecenie „wyznacz MLE”? Pisz funkcję wiarygodności.</li></ol></div></div>
 
 <div class="card"><h2>Metoda momentów</h2><p>Jeżeli parametr θ ma k składowych, bierzesz k momentów teoretycznych i przyrównujesz je do momentów z próby.</p><div class="formula">$$
-m_j(θ) = E_θ X^j\\m̂_j = (1/n) Σ X_i^j\\Rozwiąż: m_1(θ)=m̂_1, …, m_k(θ)=m̂_k
+m_j(θ) = E_θ X^j\\m̂_j = (1/n) Σ X_i^j\\m_1(θ)=m̂_1, …, m_k(θ)=m̂_k
 $$</div><div class="example"><b>Przykład z notatek: N(μ,σ²).</b><br>m₁=μ, m₂=σ²+μ². Dostajesz μ̂=X̄ oraz σ̂²=(1/n)Σ(Xᵢ−X̄)². To nie jest klasyczne nieobciążone S² z mianownikiem n−1.</div></div>
 
 <div class="card"><h2>Metoda kwantyli</h2><p>Jeżeli parametr da się zapisać przez kwantyle rozkładu, zamień kwantyl teoretyczny na próbkowy.</p><div class="formula">$$
@@ -33,11 +33,11 @@ x_p = F_θ^{-1}(p)\\θ = g(x_{p1},…,x_{ps})\\θ̂ = g(x̂_{p1},…,x̂_{ps})
 $$</div><div class="example"><b>Wykładniczy Exp(λ) z notatek.</b><br>Fλ(x)=1−e^{−λx}. Z równania Fλ(xp)=p: λ=−ln(1−p)/xp, więc λ̂=−ln(1−p)/x̂p.</div></div>
 
 <div class="card"><h2>Plug-in</h2><div class="formula">$$
-θ = T(F)  →  θ̂ = T(F̂_n)\\Jeśli θ=∫φ(x)dF(x), to θ̂=(1/n)Σφ(X_i)
+θ = T(F)  →  θ̂ = T(F̂_n)\\θ=∫φ(x)dF(x)  →  θ̂=(1/n)Σφ(X_i)
 $$</div></div>
 
 <div class="card"><h2>MLE</h2><div class="scheme"><ol><li>Napisz l(θ)=Π f(xᵢ;θ).</li><li>Przejdź do L(θ)=ln l(θ).</li><li>Rozwiąż L′(θ)=0.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>Poisson(λ) z notatek.</b><div class="formula">$$
-l(λ)=C·λ^{Σx_i}e^{-nλ}\\L(λ)=const+(Σx_i)lnλ−nλ\\L′(λ)=Σx_i/λ−n=0\\λ̂=X̄
+l(λ)=C·λ^{Σx_i}e^{-nλ}\\L(λ)=C_0+(Σx_i)lnλ−nλ\\L′(λ)=Σx_i/λ−n=0\\λ̂=X̄
 $$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla U(θ−1/2,θ+1/2) z notatek cały przedział może maksymalizować wiarygodność.</div></div>
 
 <div class="card"><h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów μ̂ i σ̂² dla normalnego.</li><li>Wyprowadź MLE λ̂=X̄ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z Fθ.</li></ol></div></div>

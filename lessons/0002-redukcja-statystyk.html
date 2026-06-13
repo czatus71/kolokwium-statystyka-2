@@ -29,15 +29,15 @@ b(θ)=Eθ[T]−g(θ)\\MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²
 $$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja p w Bin(n,p).</b><br>d₁=X/n ma ryzyko p(1−p)/n. Estymator d₂=(X+½√n)/(n+√n) ma ryzyko 1/[4(√n+1)²]. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></div>
 
 <div class="card"><h2>Zgodność i tempo</h2><div class="formula">$$
-T_n zgodny ⇔ dla każdego ε&gt;0:\\Pθ(|T_n−θ|≥ε)→0
+T_n \to θ\quad\Longleftrightarrow\quad P_θ(|T_n−θ|≥ε)→0
 $$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo √n zwykle bierze się z CTG.</p></div>
 
 <div class="card"><h2>Slutsky i metoda delta</h2><div class="formula">$$
-Jeśli a_n(X_n−c) ⇒ V oraz g′(c)≠0,\\to a_n(g(X_n)−g(c)) ⇒ g′(c)V.
+a_n(X_n−c) ⇒ V,\quad g′(c)≠0\\a_n(g(X_n)−g(c)) ⇒ g′(c)V
 $$</div><p>Używaj, gdy znasz graniczny rozkład Tn, ale zadanie pyta o funkcję g(Tn).</p></div>
 
 <div class="card"><h2>Cramer–Rao</h2><div class="formula">$$
-Varθ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=Eθ[(∂/∂θ ln f(X;θ))²]\\Dla próby iid: I_n(θ)=nI_1(θ)
+Var_θ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=E_θ[(∂/∂θ ln f(X;θ))²]\\I_n(θ)=nI_1(θ)
 $$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla Xᵢ~B(1,p), X̄ jest efektywnym estymatorem p, bo pochodna log-wiarygodności jest proporcjonalna do X̄−p.</div></div>
 
 <div class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego T policz E[T], Var(T), MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></div>

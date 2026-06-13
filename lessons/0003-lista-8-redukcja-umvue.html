@@ -31,7 +31,7 @@ $$</div>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostate
 <div class="card"><h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div></div>
 
 <div class="card"><h2>Zupełność</h2><div class="formula">$$
-T zupełna ⇔ Eθ[g(T)]=0 dla każdego θ\\implikuje Pθ(g(T)=0)=1 dla każdego θ.
+E_θ[g(T)]=0\\P_θ(g(T)=0)=1
 $$</div><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p></div>
 
 <div class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div></div>

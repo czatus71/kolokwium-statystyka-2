@@ -25,21 +25,21 @@
 <div class="card"><h2>Słownik</h2><ul><li>φ(x) — test; dla niezrandomizowanego φ∈{0,1}.</li><li>Zbiór krytyczny — tam, gdzie φ(x)=1.</li><li>Moc: βφ(θ)=Eθφ(X).</li><li>Rozmiar: sup po θ z H₀ z funkcji mocy.</li></ul></div>
 
 <div class="card"><h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><div class="formula">$$
-odrzucaj H₀, gdy f₁(x) > c f₀(x)
+f₁(x) > c f₀(x)
 $$</div>Stałą c dobierasz tak, żeby E₀φ=α.</div></div>
 
 <div class="card"><h2>MLR i Karlin–Rubin</h2><div class="formula">$$
-H₀: θ≤θ₀ vs H₁: θ&gt;θ₀\\φ*(x)=1 gdy T(x)&gt;c,\\φ*(x)=γ gdy T(x)=c,\\φ*(x)=0 gdy T(x)&lt;c.\\Dobierz c,γ z β(θ₀)=α.
+H₀: θ≤θ₀,\quad H₁: θ&gt;θ₀\\φ*(x)=1_{\{T(x)&gt;c\}}+γ1_{\{T(x)=c\}}\\β(θ₀)=α
 $$</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(μ,σ²), σ² znana, H₀:μ≤μ₀ vs H₁:μ&gt;μ₀, odrzucasz dla dużego X̄. Próg: cα=μ₀+zασ/√n.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla H₀:p≤p₀ vs H₁:p&gt;p₀ odrzucasz dla dużej sumy T=ΣXᵢ. W dyskretnym przypadku może pojawić się randomizacja γ.</div></div>
 
 <div class="card"><h2>p-value</h2><div class="formula">$$
-p-value = inf { α : x∈B_α }\\Dla B_α={T(x)&gt;c_α}:\\p-value = sup_{θ∈H₀} Pθ(T(X)≥T(x_obs))
+p_{val}=inf { α : x∈B_α }\\B_α={T(x)&gt;c_α}\\p_{val}=sup_{θ∈H₀} P_θ(T(X)≥T(x_{obs}))
 $$</div></div>
 
 <div class="card"><h2>Dwustronność i UMPU</h2><p>Dla H₀:θ=θ₀ vs θ≠θ₀ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p></div>
 
 <div class="card"><h2>Test LR</h2><div class="scheme"><div class="formula">$$
-λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)\\Odrzucaj H₀, gdy λ(x)&lt;c.
+λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)\\λ(x)&lt;c
 $$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(θ,1), H₀:θ=θ₀ vs H₁:θ≠θ₀, λ(x)=exp[−n(X̄−θ₀)²/2], więc odrzucasz dla dużego |X̄−θ₀|.</div></div>
 
 <div class="card"><h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz H₀ i H₁. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru α.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div></div>

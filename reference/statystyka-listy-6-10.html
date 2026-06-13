@@ -1,8 +1,43 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ściąga — statystyka listy 6–10</title><link rel="stylesheet" href="../style.css"></head><body><main><div class="shell"><div class="hero"><p class="eyebrow">Ściąga</p><h1>Statystyka — listy 6–10</h1><nav class="nav"><a href="../index.html">Start</a><a href="../kurs-statystyka-full.html">Jedna strona</a><a href="statystyka-listy-6-10.html">Ściąga</a></nav></div><article><div class="grid"><div class="card"><h2>Estymacja</h2><pre class="formula">Momenty: EX^j=(1/n)ΣX_i^j
-MLE: argmax l(θ)</pre></div><div class="card"><h2>Ryzyko</h2><pre class="formula">MSE = Var + bias²
-R(T,θ)=E L(T,θ)</pre></div><div class="card"><h2>Dostateczność</h2><pre class="formula">f(x;θ)=g_θ(T(x))h(x)</pre></div><div class="card"><h2>UMVUE</h2><pre class="formula">T dostateczna + zupełna
-W nieobciążony
-E[W|T]</pre></div><div class="card"><h2>Przedziały</h2><pre class="formula">a ≤ Q(X;θ) ≤ b
-→ odwróć względem θ</pre></div><div class="card"><h2>Testy</h2><pre class="formula">NP: f1/f0 &gt; c
-MLR: ogon T
-LR: sup_H0 l / sup_Θ l</pre></div></div></article></div></main></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ściąga — statystyka listy 6–10</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="katex/katex.min.css">
+</head>
+<body>
+<header>
+<span class="lesson-num">Ściąga</span>
+<h1>Statystyka — listy 6–10</h1>
+<p>Zwięzłe przypomnienie najważniejszych schematów rozwiązywania zadań.</p>
+<nav class="nav">
+<p><a href="index.html">Start</a> · <a href="kurs-statystyka-full.html">Jedna strona</a></p>
+</nav>
+</header>
+<main>
+<div class="grid">
+<section class="card"><h2>Estymacja</h2><p>Momenty, kwantyle, plug-in, MLE.</p></section>
+<section class="card"><h2>Jakość</h2><p>Bias, MSE, zgodność, Cramér–Rao.</p></section>
+<section class="card"><h2>Redukcja</h2><p>Dostateczność, zupełność, UMVUE.</p></section>
+<section class="card"><h2>Przedziały</h2><p>Funkcje centralne i odwracanie nierówności.</p></section>
+<section class="card"><h2>Testy</h2><p>Neyman–Pearson, MLR, UMP, LR, p-value.</p></section>
+</div>
+<nav class="nav">
+<p><a href="index.html">Start</a> · <a href="kurs-statystyka-full.html">Jedna strona</a></p>
+<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome reference/statystyka-listy-6-10.html</code></p>
+</nav>
+</main>
+<script src="katex/katex.min.js"></script>
+<script src="katex/auto-render.min.js"></script>
+<script>
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\(', right: '\)', display: false}
+    ]
+  });
+</script>
+</body>
+</html>

@@ -1,8 +1,45 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</title><link rel="stylesheet" href="../style.css"></head><body><main><div class="shell"><div class="hero"><span class="lesson-num">Lista 8</span><h1>Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</h1><p>Skompresować próbę do statystyki i użyć tej statystyki do ulepszania estymatorów.</p><nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="active"></a><a href="0003-rao-blackwell-umvue.html"></a><a href="0004-przedzialy-ufnosci.html"></a><a href="0005-testy-hipotez.html"></a></nav></div><article><div class="card"><h2>Źródło główne</h2><p>Notatki: Redukcja statystyk, Rao-Blackwell, statystyka swobodna, estymatory UMVUE.</p><p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p></div><div class="card"><h2>Intuicja</h2><p>Dostateczność: po poznaniu T(X), reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji g(T) o średniej zero dla wszystkich parametrów.</p>
-<h2>Faktoryzacja</h2><div class="scheme"><pre class="formula">f(x;θ)=g_θ(T(x))·h(x)</pre>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla X₁,…,Xₙ~B(1,p), prawdopodobieństwo próby zależy od p przez ΣXᵢ, więc T=ΣXᵢ jest dostateczna.</div>
-<h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div>
-<h2>Zupełność</h2><pre class="formula">T zupełna ⇔ Eθ[g(T)]=0 dla każdego θ
-implikuje Pθ(g(T)=0)=1 dla każdego θ.</pre><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p>
-<h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div>
-<h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p>
-<h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div><div class="box small"><b>Jak się uczyć:</b> zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, zapytaj mnie o dokładnie ten krok.</div></div></article></div></main></body></html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../katex/katex.min.css">
+</head>
+<body>
+<header>
+<span class="lesson-num">Lekcja 2 z 5</span>
+<h1>Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao</h1>
+<p>Przygotowanie do kolokwium &mdash; Statystyka (Listy 6-10)</p>
+<nav class="progress-bar"><a href="0001-estymacja.html" class="done"></a><a href="0002-redukcja-statystyk.html" class="active"></a><a href="0003-rao-blackwell-umvue.html"></a><a href="0004-przedzialy-ufnosci.html"></a><a href="0005-testy-hipotez.html"></a></nav>
+</header>
+<article><section class="card">
+<h2>Cel lekcji</h2>
+<p>Umieć powiedzieć nie tylko „to jest estymator”, ale czy jest dobry i w jakim sensie.</p>
+<p class="muted">Źródło główne: Notatki: Ocena jakości estymatorów, narzędzia asymptotyczne, nierówność Cramera-Rao, ciągi estymatorów.</p>
+<p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
+</section><section class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: EθT=g(θ).</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: Tn→g(θ) w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: R(T,θ)=EθL(T,θ), zwykle MSE.</li></ol></div></section><section class="card"><h2>Obciążenie i MSE</h2><div class="formula">$$
+b(θ)=Eθ[T]−g(θ)\\MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²
+$$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja p w Bin(n,p).</b><br>d₁=X/n ma ryzyko p(1−p)/n. Estymator d₂=(X+½√n)/(n+√n) ma ryzyko 1/[4(√n+1)²]. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></section><section class="card"><h2>Zgodność i tempo</h2><div class="formula">$$
+T_n zgodny ⇔ dla każdego ε&gt;0:\\Pθ(|T_n−θ|≥ε)→0
+$$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo √n zwykle bierze się z CTG.</p></section><section class="card"><h2>Slutsky i metoda delta</h2><div class="formula">$$
+Jeśli a_n(X_n−c) ⇒ V oraz g′(c)≠0,\\to a_n(g(X_n)−g(c)) ⇒ g′(c)V.
+$$</div><p>Używaj, gdy znasz graniczny rozkład Tn, ale zadanie pyta o funkcję g(Tn).</p></section><section class="card"><h2>Cramer–Rao</h2><div class="formula">$$
+Varθ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=Eθ[(∂/∂θ ln f(X;θ))²]\\Dla próby iid: I_n(θ)=nI_1(θ)
+$$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla Xᵢ~B(1,p), X̄ jest efektywnym estymatorem p, bo pochodna log-wiarygodności jest proporcjonalna do X̄−p.</div></section><section class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego T policz E[T], Var(T), MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></section><section class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></section><nav class="nav">
+<p>Poprzednia lekcja: <a href="0001-estymacja.html">Estymacja parametryczna: momenty, kwantyle, plug-in, MLE</a> | Następna lekcja: <a href="0003-rao-blackwell-umvue.html">Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE</a></p>
+<p class="open-cmd">Otwórz w przeglądarce: <code>google-chrome lessons/0002-redukcja-statystyk.html</code></p>
+</nav></article>
+<script src="../katex/katex.min.js"></script>
+<script src="../katex/auto-render.min.js"></script>
+<script>
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\(', right: '\)', display: false}
+    ]
+  });
+</script>
+</body>
+</html>

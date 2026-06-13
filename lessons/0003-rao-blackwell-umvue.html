@@ -22,19 +22,19 @@
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </div>
 
-<div class="card"><h2>Intuicja</h2><p>Dostateczność: po poznaniu T(X), reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji g(T) o średniej zero dla wszystkich parametrów.</p></div>
+<div class="card"><h2>Intuicja</h2><p>Dostateczność: po poznaniu $T(X)$, reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji $g(T)$ o średniej zero dla wszystkich parametrów.</p></div>
 
 <div class="card"><h2>Faktoryzacja</h2><div class="scheme"><div class="formula">$$
 f(x;θ)=g_θ(T(x))·h(x)
-$$</div>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla X₁,…,Xₙ~B(1,p), prawdopodobieństwo próby zależy od p przez ΣXᵢ, więc T=ΣXᵢ jest dostateczna.</div></div>
+$$</div>Jeśli cała zależność od $\theta$ przechodzi przez $T(x)$, to $T$ jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_1,\ldots,X_n\sim B(1,p)$, prawdopodobieństwo próby zależy od $p$ przez $\sum_i X_i$, więc $T=\sum_i X_i$ jest dostateczna.</div></div>
 
-<div class="card"><h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div></div>
+<div class="card"><h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli $f(x;\theta)/f(y;\theta)$ nie zależy od $\theta$, powinno wynikać $T(x)=T(y)$.</li></ol><div class="example">Dla $U(0,\theta)$ z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div></div>
 
 <div class="card"><h2>Zupełność</h2><div class="formula">$$
 E_θ[g(T)]=0\\P_θ(g(T)=0)=1
-$$</div><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p></div>
+$$</div><p>Dla $T=\sum_i X_i\sim\operatorname{Bin}(n,p)$, warunek $E_p g(T)=0$ daje wielomian równy zero dla wszystkich $p$, więc współczynniki muszą być zerowe.</p></div>
 
-<div class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div></div>
+<div class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź $T$ — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator $W$ funkcji $g(\theta)$.</li><li>Policz $\varphi(T)=E[W\mid T]$.</li><li>Z Lehmann–Scheffé: $\varphi(T)$ jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i $g(\lambda)=P(X_1=3)$, weź $W=1_{\{X_1=3\}}$, $T=\sum_i X_i$ i policz $P(X_1=3\mid T=t)$.</div></div>
 
 <div class="card"><h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></div>
 
@@ -52,6 +52,7 @@ $$</div><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dl
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
       {left: '\(', right: '\)', display: false}
     ]
   });

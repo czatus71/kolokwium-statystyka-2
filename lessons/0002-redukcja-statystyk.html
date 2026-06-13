@@ -22,25 +22,25 @@
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </div>
 
-<div class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: EθT=g(θ).</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: Tn→g(θ) w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: R(T,θ)=EθL(T,θ), zwykle MSE.</li></ol></div></div>
+<div class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: $E_\theta T=g(\theta)$.</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: $T_n\to g(\theta)$ w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: $R(T,\theta)=E_\theta L(T,\theta)$, zwykle MSE.</li></ol></div></div>
 
 <div class="card"><h2>Obciążenie i MSE</h2><div class="formula">$$
 b(θ)=Eθ[T]−g(θ)\\MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²
-$$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja p w Bin(n,p).</b><br>d₁=X/n ma ryzyko p(1−p)/n. Estymator d₂=(X+½√n)/(n+√n) ma ryzyko 1/[4(√n+1)²]. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></div>
+$$</div><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja $p$ w $\operatorname{Bin}(n,p)$.</b><br>$d_1=X/n$ ma ryzyko $p(1-p)/n$. Estymator $d_2=(X+\frac{1}{2}\sqrt{n})/(n+\sqrt{n})$ ma ryzyko $1/[4(\sqrt{n}+1)^2]$. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div></div>
 
 <div class="card"><h2>Zgodność i tempo</h2><div class="formula">$$
 T_n \to θ\quad\Longleftrightarrow\quad P_θ(|T_n−θ|≥ε)→0
-$$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo √n zwykle bierze się z CTG.</p></div>
+$$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo $\sqrt{n}$ zwykle bierze się z CTG.</p></div>
 
 <div class="card"><h2>Slutsky i metoda delta</h2><div class="formula">$$
 a_n(X_n−c) ⇒ V,\quad g′(c)≠0\\a_n(g(X_n)−g(c)) ⇒ g′(c)V
-$$</div><p>Używaj, gdy znasz graniczny rozkład Tn, ale zadanie pyta o funkcję g(Tn).</p></div>
+$$</div><p>Używaj, gdy znasz graniczny rozkład $T_n$, ale zadanie pyta o funkcję $g(T_n)$.</p></div>
 
 <div class="card"><h2>Cramer–Rao</h2><div class="formula">$$
 Var_θ[T(X)] ≥ [g′(θ)]² / I(θ)\\I(θ)=E_θ[(∂/∂θ ln f(X;θ))²]\\I_n(θ)=nI_1(θ)
-$$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla Xᵢ~B(1,p), X̄ jest efektywnym estymatorem p, bo pochodna log-wiarygodności jest proporcjonalna do X̄−p.</div></div>
+$$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_i\sim B(1,p)$, $\bar X$ jest efektywnym estymatorem $p$, bo pochodna log-wiarygodności jest proporcjonalna do $\bar X-p$.</div></div>
 
-<div class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego T policz E[T], Var(T), MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></div>
+<div class="card"><h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego $T$ policz $E[T]$, $\operatorname{Var}(T)$, MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div></div>
 
 <div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
 
@@ -54,6 +54,7 @@ $$</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla Xᵢ~B(1,p), X̄
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
       {left: '\(', right: '\)', display: false}
     ]
   });

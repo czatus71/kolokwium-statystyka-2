@@ -19,47 +19,47 @@ lessons = [
 'slug':'0001-lista-6-estymacja-parametryczna.html','list':'Lista 6','title':'Estymacja parametryczna: momenty, kwantyle, plug-in, MLE',
 'source':'Notatki: Estymacja parametryczna — metoda momentów, metoda kwantyli, plug-in, MLE.',
 'goal':'Rozpoznać metodę estymacji i przeprowadzić rachunek bez gubienia sensu.',
-'body':'''<h2>Mapa decyzyjna</h2><div class="scheme"><b>Najpierw rozpoznaj typ zadania.</b><ol><li>Masz momenty teoretyczne? Użyj metody momentów.</li><li>Pojawia się mediana, kwartyl albo procent? Użyj metody kwantyli.</li><li>Parametr jest funkcjonałem dystrybuanty, np. E φ(X)? Użyj plug-in.</li><li>Masz gęstość lub pmf i polecenie „wyznacz MLE”? Pisz funkcję wiarygodności.</li></ol></div>
-<h2>Metoda momentów</h2><p>Jeżeli parametr θ ma k składowych, bierzesz k momentów teoretycznych i przyrównujesz je do momentów z próby.</p><pre class="formula">m_j(θ) = E_θ X^j
+'body':'''<h2>Mapa decyzyjna</h2><div class="scheme"><b>Najpierw rozpoznaj typ zadania.</b><ol><li>Masz momenty teoretyczne? Użyj metody momentów.</li><li>Pojawia się mediana, kwartyl albo procent? Użyj metody kwantyli.</li><li>Parametr jest funkcjonałem dystrybuanty, np. $E\varphi(X)$? Użyj plug-in.</li><li>Masz gęstość lub pmf i polecenie „wyznacz MLE”? Pisz funkcję wiarygodności.</li></ol></div>
+<h2>Metoda momentów</h2><p>Jeżeli parametr $\theta$ ma k składowych, bierzesz k momentów teoretycznych i przyrównujesz je do momentów z próby.</p><pre class="formula">m_j(θ) = E_θ X^j
 m̂_j = (1/n) Σ X_i^j
-Rozwiąż: m_1(θ)=m̂_1, …, m_k(θ)=m̂_k</pre><div class="example"><b>Przykład z notatek: N(μ,σ²).</b><br>m₁=μ, m₂=σ²+μ². Dostajesz μ̂=X̄ oraz σ̂²=(1/n)Σ(Xᵢ−X̄)². To nie jest klasyczne nieobciążone S² z mianownikiem n−1.</div>
+Rozwiąż: m_1(θ)=m̂_1, …, m_k(θ)=m̂_k</pre><div class="example"><b>Przykład z notatek: $N(\mu,\sigma^2)$.</b><br>$m_1=\mu$, $m_2=\sigma^2+\mu^2$. Dostajesz $\hat\mu=\bar X$ oraz $\hat\sigma^2=\frac{1}{n}\sum_i (X_i-\bar X)^2$. To nie jest klasyczne nieobciążone $S^2$ z mianownikiem $n-1$.</div>
 <h2>Metoda kwantyli</h2><p>Jeżeli parametr da się zapisać przez kwantyle rozkładu, zamień kwantyl teoretyczny na próbkowy.</p><pre class="formula">x_p = F_θ^{-1}(p)
 θ = g(x_{p1},…,x_{ps})
-θ̂ = g(x̂_{p1},…,x̂_{ps})</pre><div class="example"><b>Wykładniczy Exp(λ) z notatek.</b><br>Fλ(x)=1−e^{−λx}. Z równania Fλ(xp)=p: λ=−ln(1−p)/xp, więc λ̂=−ln(1−p)/x̂p.</div>
+θ̂ = g(x̂_{p1},…,x̂_{ps})</pre><div class="example"><b>Wykładniczy $\operatorname{Exp}(\lambda)$ z notatek.</b><br>$F_\lambda(x)=1-e^{-\lambda x}$. Z równania $F_\lambda(x_p)=p$ dostajesz $\lambda=-\ln(1-p)/x_p$, więc $\hat\lambda=-\ln(1-p)/\hat x_p$.</div>
 <h2>Plug-in</h2><pre class="formula">θ = T(F)  →  θ̂ = T(F̂_n)
 Jeśli θ=∫φ(x)dF(x), to θ̂=(1/n)Σφ(X_i)</pre>
-<h2>MLE</h2><div class="scheme"><ol><li>Napisz l(θ)=Π f(xᵢ;θ).</li><li>Przejdź do L(θ)=ln l(θ).</li><li>Rozwiąż L′(θ)=0.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>Poisson(λ) z notatek.</b><pre class="formula">l(λ)=C·λ^{Σx_i}e^{-nλ}
+<h2>MLE</h2><div class="scheme"><ol><li>Napisz $l(\theta)=\prod_i f(x_i;\theta)$.</li><li>Przejdź do $L(\theta)=\ln l(\theta)$.</li><li>Rozwiąż $L'(\theta)=0$.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>$\operatorname{Poisson}(\lambda)$ z notatek.</b><pre class="formula">l(λ)=C·λ^{Σx_i}e^{-nλ}
 L(λ)=const+(Σx_i)lnλ−nλ
 L′(λ)=Σx_i/λ−n=0
-λ̂=X̄</pre></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla U(θ−1/2,θ+1/2) z notatek cały przedział może maksymalizować wiarygodność.</div>
-<h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów μ̂ i σ̂² dla normalnego.</li><li>Wyprowadź MLE λ̂=X̄ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z Fθ.</li></ol></div>'''
+λ̂=X̄</pre></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla $U(\theta-1/2,\theta+1/2)$ z notatek cały przedział może maksymalizować wiarygodność.</div>
+<h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów $\hat\mu$ i $\hat\sigma^2$ dla normalnego.</li><li>Wyprowadź MLE $\hat\lambda=\bar X$ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z $F_\theta$.</li></ol></div>'''
 },
 {
 'slug':'0002-lista-7-jakosc-estymatorow.html','list':'Lista 7','title':'Jakość estymatorów: zgodność, obciążenie, ryzyko, Cramer–Rao',
 'source':'Notatki: Ocena jakości estymatorów, narzędzia asymptotyczne, nierówność Cramera-Rao, ciągi estymatorów.',
 'goal':'Umieć powiedzieć nie tylko „to jest estymator”, ale czy jest dobry i w jakim sensie.',
-'body':'''<h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: EθT=g(θ).</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: Tn→g(θ) w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: R(T,θ)=EθL(T,θ), zwykle MSE.</li></ol></div>
+'body':'''<h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: $E_\theta T=g(\theta)$.</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: $T_n\to g(\theta)$ w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: $R(T,\theta)=E_\theta L(T,\theta)$, zwykle MSE.</li></ol></div>
 <h2>Obciążenie i MSE</h2><pre class="formula">b(θ)=Eθ[T]−g(θ)
-MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²</pre><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja p w Bin(n,p).</b><br>d₁=X/n ma ryzyko p(1−p)/n. Estymator d₂=(X+½√n)/(n+√n) ma ryzyko 1/[4(√n+1)²]. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div>
+MSE(T)=Eθ[(T−g(θ))²]=Varθ(T)+b(θ)²</pre><p>Estymator może być obciążony, ale mieć mniejsze MSE, jeśli znacząco zmniejsza wariancję.</p><div class="example"><b>Przykład z notatek: estymacja $p$ w $\operatorname{Bin}(n,p)$.</b><br>$d_1=X/n$ ma ryzyko $p(1-p)/n$. Estymator $d_2=(X+\frac{1}{2}\sqrt{n})/(n+\sqrt{n})$ ma ryzyko $1/[4(\sqrt{n}+1)^2]$. Nieobciążoność nie oznacza automatycznie najlepszego ryzyka.</div>
 <h2>Zgodność i tempo</h2><pre class="formula">T_n zgodny ⇔ dla każdego ε&gt;0:
-Pθ(|T_n−θ|≥ε)→0</pre><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo √n zwykle bierze się z CTG.</p>
+Pθ(|T_n−θ|≥ε)→0</pre><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo $\sqrt{n}$ zwykle bierze się z CTG.</p>
 <h2>Slutsky i metoda delta</h2><pre class="formula">Jeśli a_n(X_n−c) ⇒ V oraz g′(c)≠0,
-to a_n(g(X_n)−g(c)) ⇒ g′(c)V.</pre><p>Używaj, gdy znasz graniczny rozkład Tn, ale zadanie pyta o funkcję g(Tn).</p>
+to a_n(g(X_n)−g(c)) ⇒ g′(c)V.</pre><p>Używaj, gdy znasz graniczny rozkład $T_n$, ale zadanie pyta o funkcję $g(T_n)$.</p>
 <h2>Cramer–Rao</h2><pre class="formula">Varθ[T(X)] ≥ [g′(θ)]² / I(θ)
 I(θ)=Eθ[(∂/∂θ ln f(X;θ))²]
-Dla próby iid: I_n(θ)=nI_1(θ)</pre><div class="example"><b>Bernoulli z notatek.</b><br>Dla Xᵢ~B(1,p), X̄ jest efektywnym estymatorem p, bo pochodna log-wiarygodności jest proporcjonalna do X̄−p.</div>
-<h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego T policz E[T], Var(T), MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div>'''
+Dla próby iid: I_n(θ)=nI_1(θ)</pre><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_i\sim B(1,p)$, $\bar X$ jest efektywnym estymatorem $p$, bo pochodna log-wiarygodności jest proporcjonalna do $\bar X-p$.</div>
+<h2>Ćwiczenia do listy 7</h2><div class="exercise"><ol><li>Dla danego $T$ policz $E[T]$, $\operatorname{Var}(T)$, MSE.</li><li>Sprawdź, czy estymator jest asymptotycznie nieobciążony.</li><li>Policz informację Fishera i porównaj z wariancją estymatora.</li></ol><p><b>Typowy błąd:</b> mylenie zgodności z nieobciążonością.</p></div>'''
 },
 {
 'slug':'0003-lista-8-redukcja-umvue.html','list':'Lista 8','title':'Redukcja statystyk: dostateczność, minimalność, zupełność, UMVUE',
 'source':'Notatki: Redukcja statystyk, Rao-Blackwell, statystyka swobodna, estymatory UMVUE.',
 'goal':'Skompresować próbę do statystyki i użyć tej statystyki do ulepszania estymatorów.',
-'body':'''<h2>Intuicja</h2><p>Dostateczność: po poznaniu T(X), reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji g(T) o średniej zero dla wszystkich parametrów.</p>
-<h2>Faktoryzacja</h2><div class="scheme"><pre class="formula">f(x;θ)=g_θ(T(x))·h(x)</pre>Jeśli cała zależność od θ przechodzi przez T(x), to T jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla X₁,…,Xₙ~B(1,p), prawdopodobieństwo próby zależy od p przez ΣXᵢ, więc T=ΣXᵢ jest dostateczna.</div>
-<h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli f(x;θ)/f(y;θ) nie zależy od θ, powinno wynikać T(x)=T(y).</li></ol><div class="example">Dla U(0,θ) z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div>
+'body':'''<h2>Intuicja</h2><p>Dostateczność: po poznaniu $T(X)$, reszta próby nie wnosi informacji o parametrze. Minimalność: T jest najprostszą taką kompresją. Zupełność: nie ma niezerowej funkcji $g(T)$ o średniej zero dla wszystkich parametrów.</p>
+<h2>Faktoryzacja</h2><div class="scheme"><pre class="formula">f(x;θ)=g_θ(T(x))·h(x)</pre>Jeśli cała zależność od $\theta$ przechodzi przez $T(x)$, to $T$ jest dostateczna.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $X_1,\ldots,X_n\sim B(1,p)$, prawdopodobieństwo próby zależy od $p$ przez $\sum_i X_i$, więc $T=\sum_i X_i$ jest dostateczna.</div>
+<h2>Minimalność</h2><ol><li>W pełnej rodzinie wykładniczej naturalna statystyka jest minimalnie dostateczna.</li><li>Kryterium ilorazu: jeśli $f(x;\theta)/f(y;\theta)$ nie zależy od $\theta$, powinno wynikać $T(x)=T(y)$.</li></ol><div class="example">Dla $U(0,\theta)$ z notatek dostateczna jest największa obserwacja X(n), bo nośnik wymusza X(n)≤θ.</div>
 <h2>Zupełność</h2><pre class="formula">T zupełna ⇔ Eθ[g(T)]=0 dla każdego θ
-implikuje Pθ(g(T)=0)=1 dla każdego θ.</pre><p>Dla T=ΣXᵢ~Bin(n,p), warunek Epg(T)=0 daje wielomian równy zero dla wszystkich p, więc współczynniki muszą być zerowe.</p>
-<h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź T — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator W funkcji g(θ).</li><li>Policz φ(T)=E[W|T].</li><li>Z Lehmann–Scheffé: φ(T) jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i g(λ)=P(X₁=3), weź W=1{X₁=3}, T=ΣXᵢ i policz P(X₁=3|T=t).</div>
+implikuje Pθ(g(T)=0)=1 dla każdego θ.</pre><p>Dla $T=\sum_i X_i\sim\operatorname{Bin}(n,p)$, warunek $E_p g(T)=0$ daje wielomian równy zero dla wszystkich $p$, więc współczynniki muszą być zerowe.</p>
+<h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź $T$ — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator $W$ funkcji $g(\theta)$.</li><li>Policz $\varphi(T)=E[W\mid T]$.</li><li>Z Lehmann–Scheffé: $\varphi(T)$ jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i $g(\lambda)=P(X_1=3)$, weź $W=1_{\{X_1=3\}}$, $T=\sum_i X_i$ i policz $P(X_1=3\mid T=t)$.</div>
 <h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p>
 <h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div>'''
 },
@@ -67,37 +67,37 @@ implikuje Pθ(g(T)=0)=1 dla każdego θ.</pre><p>Dla T=ΣXᵢ~Bin(n,p), warunek 
 'slug':'0004-lista-9-przedzialy-ufnosci.html','list':'Lista 9','title':'Przedziały ufności: funkcje centralne i odwracanie nierówności',
 'source':'Notatki: Estymacja przedziałowa, funkcje centralne, najkrótsze przedziały ufności.',
 'goal':'Znaleźć funkcję centralną i zamienić zdarzenie probabilistyczne w przedział dla parametru.',
-'body':'''<h2>Znaczenie</h2><p>Parametr θ jest stały. Losowy jest przedział [L(X),U(X)]. Procedura ma pokrycie co najmniej 1−α.</p><pre class="formula">Pθ(θ∈[L(X),U(X)]) ≥ 1−α</pre>
-<h2>Funkcja centralna</h2><div class="scheme"><b>Q(X;θ)</b> zależy od próby i parametru, ale jej rozkład nie zależy od θ.</div><pre class="formula">1. Wybierz a,b: P(a≤Q(X;θ)≤b)≥1−α.
+'body':'''<h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><pre class="formula">Pθ(θ∈[L(X),U(X)]) ≥ 1−α</pre>
+<h2>Funkcja centralna</h2><div class="scheme"><b>$Q(X;\theta)$</b> zależy od próby i parametru, ale jej rozkład nie zależy od $\theta$.</div><pre class="formula">1. Wybierz a,b: P(a≤Q(X;θ)≤b)≥1−α.
 2. Rozwiąż a≤Q(X;θ)≤b względem θ.
 3. Odczytaj [L(X),U(X)].</pre>
-<h2>Normalny: σ znana</h2><div class="example"><pre class="formula">X_i~N(μ,σ²), σ znana
-Q=√n(X̄−μ)/σ ~ N(0,1)
-μ∈[X̄−σz_{α/2}/√n, X̄+σz_{α/2}/√n]</pre></div>
-<h2>Normalny: σ nieznana</h2><div class="example"><pre class="formula">Q=√n(X̄−μ)/S ~ t_{n−1}
-μ∈[X̄−S t_{n−1,α/2}/√n,
-   X̄+S t_{n−1,α/2}/√n]</pre></div>
-<h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie 1−α można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p>
-<h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na Q: normalny, t, χ², transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div>'''
+<h2>Normalny: $\sigma$ znana</h2><div class="example"><pre class="formula">X_i~N(μ,σ²), σ znana
+Q=$\sqrt{n}$(X̄−μ)/σ ~ N(0,1)
+μ∈[X̄−σz_{α/2}/$\sqrt{n}$, X̄+σz_{α/2}/$\sqrt{n}$]</pre></div>
+<h2>Normalny: $\sigma$ nieznana</h2><div class="example"><pre class="formula">Q=$\sqrt{n}$(X̄−μ)/S ~ t_{n−1}
+μ∈[X̄−S t_{n−1,α/2}/$\sqrt{n}$,
+   X̄+S t_{n−1,α/2}/$\sqrt{n}$]</pre></div>
+<h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie $1-\alpha$ można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p>
+<h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na $Q$: normalny, $t$, $\chi^2$, transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div>'''
 },
 {
 'slug':'0005-lista-10-testy-hipotez.html','list':'Lista 10','title':'Testowanie hipotez: Neyman–Pearson, MLR, UMP, LR, p-value',
 'source':'Notatki: Testowanie hipotez, MLR/UMP, p-value, hipotezy dwustronne, testy nieobciążone, LR.',
-'goal':'Przejść od hipotez do obszaru krytycznego i dobrać próg dający rozmiar α.',
-'body':'''<h2>Słownik</h2><ul><li>φ(x) — test; dla niezrandomizowanego φ∈{0,1}.</li><li>Zbiór krytyczny — tam, gdzie φ(x)=1.</li><li>Moc: βφ(θ)=Eθφ(X).</li><li>Rozmiar: sup po θ z H₀ z funkcji mocy.</li></ul>
-<h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez H₀:f₀ vs H₁:f₁:</b><pre class="formula">f₁(x) > c f₀(x)</pre>Stałą c dobierasz tak, żeby E₀φ=α.</div>
+'goal':'Przejść od hipotez do obszaru krytycznego i dobrać próg dający rozmiar $\alpha$.',
+'body':'''<h2>Słownik</h2><ul><li>$\varphi(x)$ — test; dla niezrandomizowanego $\varphi\in\{0,1\}$.</li><li>Zbiór krytyczny — tam, gdzie $\varphi(x)=1$.</li><li>Moc: $\beta_\varphi(\theta)=E_\theta\varphi(X)$.</li><li>Rozmiar: $\sup$ po $\theta$ z $H_0$ z funkcji mocy.</li></ul>
+<h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez $H_0:f_0$ vs $H_1:f_1$:</b><pre class="formula">f₁(x) > c f₀(x)</pre>Stałą $c$ dobierasz tak, żeby $E_0\varphi=\alpha$.</div>
 <h2>MLR i Karlin–Rubin</h2><pre class="formula">H₀: θ≤θ₀ vs H₁: θ&gt;θ₀
 φ*(x)=1 gdy T(x)&gt;c,
 φ*(x)=γ gdy T(x)=c,
 φ*(x)=0 gdy T(x)&lt;c.
-Dobierz c,γ z β(θ₀)=α.</pre><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(μ,σ²), σ² znana, H₀:μ≤μ₀ vs H₁:μ&gt;μ₀, odrzucasz dla dużego X̄. Próg: cα=μ₀+zασ/√n.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla H₀:p≤p₀ vs H₁:p&gt;p₀ odrzucasz dla dużej sumy T=ΣXᵢ. W dyskretnym przypadku może pojawić się randomizacja γ.</div>
+Dobierz c,γ z β(θ₀)=α.</pre><div class="example"><b>Normalny z notatek.</b><br>Dla $X_i\sim N(\mu,\sigma^2)$, $\sigma^2$ znana, $H_0:\mu\le\mu_0$ vs $H_1:\mu&gt;\mu_0$, odrzucasz dla dużego $\bar X$. Próg: $c_\alpha=\mu_0+z_\alpha\sigma/\sqrt{n}$.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $H_0:p\le p_0$ vs $H_1:p&gt;p_0$ odrzucasz dla dużej sumy $T=\sum_i X_i$. W dyskretnym przypadku może pojawić się randomizacja γ.</div>
 <h2>p-value</h2><pre class="formula">p-value = inf { α : x∈B_α }
 Dla B_α={T(x)&gt;c_α}:
 p-value = sup_{θ∈H₀} Pθ(T(X)≥T(x_obs))</pre>
-<h2>Dwustronność i UMPU</h2><p>Dla H₀:θ=θ₀ vs θ≠θ₀ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p>
+<h2>Dwustronność i UMPU</h2><p>Dla $H_0:\theta=\theta_0$ vs $\theta\ne\theta_0$ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p>
 <h2>Test LR</h2><div class="scheme"><pre class="formula">λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)
-Odrzucaj H₀, gdy λ(x)&lt;c.</pre>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla Xᵢ~N(θ,1), H₀:θ=θ₀ vs H₁:θ≠θ₀, λ(x)=exp[−n(X̄−θ₀)²/2], więc odrzucasz dla dużego |X̄−θ₀|.</div>
-<h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz H₀ i H₁. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru α.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div>'''
+Odrzucaj H₀, gdy λ(x)&lt;c.</pre>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla $X_i\sim N(\theta,1)$, $H_0:\theta=\theta_0$ vs $H_1:\theta\ne\theta_0$, $\lambda(x)=\exp[-n(\bar X-\theta_0)^2/2]$, więc odrzucasz dla dużego $|\bar X-\theta_0|$.</div>
+<h2>Ćwiczenia do listy 10</h2><div class="exercise"><ol><li>Zapisz $H_0$ i $H_1$. Czy są proste, jednostronne, dwustronne?</li><li>Sprawdź MLR względem T.</li><li>Ustal kierunek ogona.</li><li>Dobierz próg z warunku rozmiaru $\alpha$.</li><li>Policz moc albo p-value, jeśli proszą.</li></ol></div>'''
 }
 ]
 

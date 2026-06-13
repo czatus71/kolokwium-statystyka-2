@@ -22,25 +22,25 @@
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </div>
 
-<div class="card"><h2>Znaczenie</h2><p>Parametr θ jest stały. Losowy jest przedział [L(X),U(X)]. Procedura ma pokrycie co najmniej 1−α.</p><div class="formula">$$
+<div class="card"><h2>Znaczenie</h2><p>Parametr $\theta$ jest stały. Losowy jest przedział $[L(X),U(X)]$. Procedura ma pokrycie co najmniej $1-\alpha$.</p><div class="formula">$$
 Pθ(θ∈[L(X),U(X)]) ≥ 1−α
 $$</div></div>
 
-<div class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>Q(X;θ)</b> zależy od próby i parametru, ale jej rozkład nie zależy od θ.</div><div class="formula">$$
+<div class="card"><h2>Funkcja centralna</h2><div class="scheme"><b>$Q(X;\theta)$</b> zależy od próby i parametru, ale jej rozkład nie zależy od $\theta$.</div><div class="formula">$$
 P(a≤Q(X;θ)≤b)≥1−α\\a≤Q(X;θ)≤b\\[L(X),U(X)]
 $$</div></div>
 
-<div class="card"><h2>Normalny: σ znana</h2><div class="example"><div class="formula">$$
-X_i~N(μ,σ²)\\Q=√n(X̄−μ)/σ ~ N(0,1)\\μ∈[X̄−σz_{α/2}/√n, X̄+σz_{α/2}/√n]
+<div class="card"><h2>Normalny: $\sigma$ znana</h2><div class="example"><div class="formula">$$
+X_i~N(μ,σ²)\\Q=$\sqrt{n}$(X̄−μ)/σ ~ N(0,1)\\μ∈[X̄−σz_{α/2}/$\sqrt{n}$, X̄+σz_{α/2}/$\sqrt{n}$]
 $$</div></div></div>
 
-<div class="card"><h2>Normalny: σ nieznana</h2><div class="example"><div class="formula">$$
-Q=√n(X̄−μ)/S ~ t_{n−1}\\μ∈[X̄−S t_{n−1,α/2}/√n,\\   X̄+S t_{n−1,α/2}/√n]
+<div class="card"><h2>Normalny: $\sigma$ nieznana</h2><div class="example"><div class="formula">$$
+Q=$\sqrt{n}$(X̄−μ)/S ~ t_{n−1}\\μ∈[X̄−S t_{n−1,α/2}/$\sqrt{n}$,\\   X̄+S t_{n−1,α/2}/$\sqrt{n}$]
 $$</div></div></div>
 
-<div class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie 1−α można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></div>
+<div class="card"><h2>Najkrótsze przedziały</h2><p>Jeśli gęstość funkcji centralnej jest unimodalna, przedział o masie $1-\alpha$ można dobrać tak, by miał minimalną długość. „Najkrótszy” nie zawsze znaczy symetryczny.</p></div>
 
-<div class="card"><h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na Q: normalny, t, χ², transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div></div>
+<div class="card"><h2>Ćwiczenia do listy 9</h2><div class="exercise"><ol><li>Podkreśl parametr.</li><li>Wypisz kandydatów na $Q$: normalny, $t$, $\chi^2$, transformacja monotoniczna.</li><li>Po odwróceniu nierówności sprawdź kierunek znaków.</li></ol></div></div>
 
 <div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
 
@@ -54,6 +54,7 @@ $$</div></div></div>
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
       {left: '\(', right: '\)', display: false}
     ]
   });

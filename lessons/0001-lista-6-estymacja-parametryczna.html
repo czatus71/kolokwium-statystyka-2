@@ -22,25 +22,25 @@
 <p class="muted">Uwaga: katalog psets istnieje obok repo, ale w kontenerze nie mam uprawnień do czytania go. Dlatego odwołania do list są tematyczne, nie do numerów konkretnych zadań.</p>
 </div>
 
-<div class="card"><h2>Mapa decyzyjna</h2><div class="scheme"><b>Najpierw rozpoznaj typ zadania.</b><ol><li>Masz momenty teoretyczne? Użyj metody momentów.</li><li>Pojawia się mediana, kwartyl albo procent? Użyj metody kwantyli.</li><li>Parametr jest funkcjonałem dystrybuanty, np. E φ(X)? Użyj plug-in.</li><li>Masz gęstość lub pmf i polecenie „wyznacz MLE”? Pisz funkcję wiarygodności.</li></ol></div></div>
+<div class="card"><h2>Mapa decyzyjna</h2><div class="scheme"><b>Najpierw rozpoznaj typ zadania.</b><ol><li>Masz momenty teoretyczne? Użyj metody momentów.</li><li>Pojawia się mediana, kwartyl albo procent? Użyj metody kwantyli.</li><li>Parametr jest funkcjonałem dystrybuanty, np. $E\varphi(X)$? Użyj plug-in.</li><li>Masz gęstość lub pmf i polecenie „wyznacz MLE”? Pisz funkcję wiarygodności.</li></ol></div></div>
 
-<div class="card"><h2>Metoda momentów</h2><p>Jeżeli parametr θ ma k składowych, bierzesz k momentów teoretycznych i przyrównujesz je do momentów z próby.</p><div class="formula">$$
+<div class="card"><h2>Metoda momentów</h2><p>Jeżeli parametr $\theta$ ma k składowych, bierzesz k momentów teoretycznych i przyrównujesz je do momentów z próby.</p><div class="formula">$$
 m_j(θ) = E_θ X^j\\m̂_j = (1/n) Σ X_i^j\\m_1(θ)=m̂_1, …, m_k(θ)=m̂_k
-$$</div><div class="example"><b>Przykład z notatek: N(μ,σ²).</b><br>m₁=μ, m₂=σ²+μ². Dostajesz μ̂=X̄ oraz σ̂²=(1/n)Σ(Xᵢ−X̄)². To nie jest klasyczne nieobciążone S² z mianownikiem n−1.</div></div>
+$$</div><div class="example"><b>Przykład z notatek: $N(\mu,\sigma^2)$.</b><br>$m_1=\mu$, $m_2=\sigma^2+\mu^2$. Dostajesz $\hat\mu=\bar X$ oraz $\hat\sigma^2=\frac{1}{n}\sum_i (X_i-\bar X)^2$. To nie jest klasyczne nieobciążone $S^2$ z mianownikiem $n-1$.</div></div>
 
 <div class="card"><h2>Metoda kwantyli</h2><p>Jeżeli parametr da się zapisać przez kwantyle rozkładu, zamień kwantyl teoretyczny na próbkowy.</p><div class="formula">$$
 x_p = F_θ^{-1}(p)\\θ = g(x_{p1},…,x_{ps})\\θ̂ = g(x̂_{p1},…,x̂_{ps})
-$$</div><div class="example"><b>Wykładniczy Exp(λ) z notatek.</b><br>Fλ(x)=1−e^{−λx}. Z równania Fλ(xp)=p: λ=−ln(1−p)/xp, więc λ̂=−ln(1−p)/x̂p.</div></div>
+$$</div><div class="example"><b>Wykładniczy $\operatorname{Exp}(\lambda)$ z notatek.</b><br>$F_\lambda(x)=1-e^{-\lambda x}$. Z równania $F_\lambda(x_p)=p$ dostajesz $\lambda=-\ln(1-p)/x_p$, więc $\hat\lambda=-\ln(1-p)/\hat x_p$.</div></div>
 
 <div class="card"><h2>Plug-in</h2><div class="formula">$$
 θ = T(F)  →  θ̂ = T(F̂_n)\\θ=∫φ(x)dF(x)  →  θ̂=(1/n)Σφ(X_i)
 $$</div></div>
 
-<div class="card"><h2>MLE</h2><div class="scheme"><ol><li>Napisz l(θ)=Π f(xᵢ;θ).</li><li>Przejdź do L(θ)=ln l(θ).</li><li>Rozwiąż L′(θ)=0.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>Poisson(λ) z notatek.</b><div class="formula">$$
+<div class="card"><h2>MLE</h2><div class="scheme"><ol><li>Napisz $l(\theta)=\prod_i f(x_i;\theta)$.</li><li>Przejdź do $L(\theta)=\ln l(\theta)$.</li><li>Rozwiąż $L'(\theta)=0$.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>$\operatorname{Poisson}(\lambda)$ z notatek.</b><div class="formula">$$
 l(λ)=C·λ^{Σx_i}e^{-nλ}\\L(λ)=C_0+(Σx_i)lnλ−nλ\\L′(λ)=Σx_i/λ−n=0\\λ̂=X̄
-$$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla U(θ−1/2,θ+1/2) z notatek cały przedział może maksymalizować wiarygodność.</div></div>
+$$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla $U(\theta-1/2,\theta+1/2)$ z notatek cały przedział może maksymalizować wiarygodność.</div></div>
 
-<div class="card"><h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów μ̂ i σ̂² dla normalnego.</li><li>Wyprowadź MLE λ̂=X̄ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z Fθ.</li></ol></div></div>
+<div class="card"><h2>Ćwiczenia do listy 6</h2><div class="exercise"><ol><li>Wyprowadź metodą momentów $\hat\mu$ i $\hat\sigma^2$ dla normalnego.</li><li>Wyprowadź MLE $\hat\lambda=\bar X$ dla Poissona.</li><li>Spróbuj zbudować estymator z mediany dla dowolnego rozkładu z $F_\theta$.</li></ol></div></div>
 
 <div class="card"><h2>Jak się uczyć</h2><p>Zasłoń schemat, odtwórz go z pamięci, potem zrób jedno zadanie z listy w tym wzorcu. Jeśli utkniesz, wróć do karty z celem lekcji albo zapytaj mnie o dokładnie ten krok.</p></div>
 
@@ -54,6 +54,7 @@ $$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednozna
   renderMathInElement(document.body, {
     delimiters: [
       {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
       {left: '\(', right: '\)', display: false}
     ]
   });

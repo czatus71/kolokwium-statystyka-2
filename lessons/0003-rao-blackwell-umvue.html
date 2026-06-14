@@ -35,9 +35,9 @@ $$</div>Jeśli cała zależność od $\theta$ przechodzi przez $T(x)$, to $T$ je
 E_θ[g(T)]=0\\P_θ(g(T)=0)=1
 $$</div><p>Dla $T=\sum_i X_i\sim\operatorname{Bin}(n,p)$, warunek $E_p g(T)=0$ daje wielomian równy zero dla wszystkich $p$, więc współczynniki muszą być zerowe.</p></div>
 
-<div class="card"><h2>Rao–Blackwell i Lehmann–Scheffé</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź $T$ — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator $W$ funkcji $g(\theta)$.</li><li>Policz $\varphi(T)=E[W\mid T]$.</li><li>Z Lehmann–Scheffé: $\varphi(T)$ jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i $g(\lambda)=P(X_1=3)$, weź $W=1_{\{X_1=3\}}$, $T=\sum_i X_i$ i policz $P(X_1=3\mid T=t)$.</div></div>
+<div class="card"><h2>Twierdzenie Rao–Blackwella i twierdzenie Lehmanna–Scheffégo</h2><div class="scheme"><b>Algorytm UMVUE:</b><ol><li>Znajdź $T$ — dostateczną i zupełną.</li><li>Znajdź dowolny nieobciążony estymator $W$ funkcji $g(\theta)$.</li><li>Policz $\varphi(T)=E[W\mid T]$.</li><li>Z Lehmann–Scheffé: $\varphi(T)$ jest UMVUE.</li></ol></div><div class="example">Z notatek: dla Poissona i $g(\lambda)=P(X_1=3)$, weź $W=1_{\{X_1=3\}}$, $T=\sum_i X_i$ i policz $P(X_1=3\mid T=t)$.</div></div>
 
-<div class="card"><h2>Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></div>
+<div class="card"><h2>Twierdzenie Basu</h2><p>Jeśli T jest dostateczna i zupełna, a V jest statystyką swobodną, to T i V są niezależne.</p></div>
 
 <div class="card"><h2>Ćwiczenia do listy 8</h2><div class="exercise"><ol><li>Najpierw spróbuj faktoryzacji.</li><li>Potem sprawdź, czy to rodzina wykładnicza pełnego rzędu.</li><li>Jeśli pytają o UMVUE, zacznij od T i W, nie od wariancji.</li></ol></div></div>
 

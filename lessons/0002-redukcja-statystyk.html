@@ -25,7 +25,7 @@
 
 <div class="card"><h2>Trzy pytania o estymator</h2><div class="scheme"><ol><li><b>Czy trafia średnio?</b> Nieobciążoność: $E_\theta T=g(\theta)$.</li><li><b>Czy zbiega przy dużej próbie?</b> Zgodność: $T_n\to g(\theta)$ w prawdopodobieństwie.</li><li><b>Ile kosztuje błąd?</b> Ryzyko: $R(T,\theta)=E_\theta L(T,\theta)$, zwykle MSE.</li></ol></div></div>
 
-<div class="card"><h2>Obciążenie i MSE</h2><div class="formula">$$
+<div class="card"><h2>Obciążenie i średni błąd kwadratowy (MSE)</h2><div class="formula">$$
 b(\theta)=E_\theta[T]-g(\theta)\\
 \operatorname{MSE}(T)=E_\theta[(T-g(\theta))^2]\\
 \operatorname{MSE}(T)=\operatorname{Var}_\theta(T)+b(\theta)^2
@@ -39,7 +39,7 @@ $$</div><p>Średnia próbkowa jest mocno zgodna z MPWL. Tempo $\sqrt{n}$ zwykle 
 a_n(X_n−c) ⇒ V,\quad g′(c)≠0\\a_n(g(X_n)−g(c)) ⇒ g′(c)V
 $$</div><p>Używaj, gdy znasz graniczny rozkład $T_n$, ale zadanie pyta o funkcję $g(T_n)$.</p></div>
 
-<div class="card"><h2>Cramer–Rao</h2><div class="formula">$$
+<div class="card"><h2>Nierówność Craméra–Rao</h2><p>To dolne ograniczenie na wariancję: dla nieobciążonego estymatora nie da się zejść poniżej prawej strony tej nierówności.</p><div class="formula">$$
 \operatorname{Var}_\theta[T(X)] \ge \frac{(g'(\theta))^2}{I(\theta)}\\
 I(\theta)=E_\theta\left[\left(\frac{\partial}{\partial\theta}\ln f(X;\theta)\right)^2\right]\\
 I_n(\theta)=nI_1(\theta)

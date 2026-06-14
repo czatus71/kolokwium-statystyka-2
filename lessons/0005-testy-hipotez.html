@@ -25,21 +25,21 @@
 
 <div class="card"><h2>Słownik</h2><ul><li>$\varphi(x)$ — test; dla niezrandomizowanego $\varphi\in\{0,1\}$.</li><li>Zbiór krytyczny — tam, gdzie $\varphi(x)=1$.</li><li>Moc: $\beta_\varphi(\theta)=E_\theta\varphi(X)$.</li><li>Rozmiar: $\sup$ po $\theta$ z $H_0$ z funkcji mocy.</li></ul></div>
 
-<div class="card"><h2>Neyman–Pearson</h2><div class="scheme"><b>Dla prostych hipotez $H_0:f_0$ vs $H_1:f_1$:</b><div class="formula">$$
+<div class="card"><h2>Twierdzenie Neymana–Pearsona</h2><div class="scheme"><b>Dla prostych hipotez $H_0:f_0$ vs $H_1:f_1$:</b><div class="formula">$$
 f₁(x) > c f₀(x)
 $$</div>Stałą $c$ dobierasz tak, żeby $E_0\varphi=\alpha$.</div></div>
 
-<div class="card"><h2>MLR i Karlin–Rubin</h2><div class="formula">$$
+<div class="card"><h2>Monotoniczny iloraz wiarygodności (MLR) i twierdzenie Karline'a–Rubina</h2><div class="formula">$$
 H₀: θ≤θ₀,\quad H₁: θ&gt;θ₀\\φ*(x)=1_{\{T(x)&gt;c\}}+γ1_{\{T(x)=c\}}\\β(θ₀)=α
 $$</div><div class="example"><b>Normalny z notatek.</b><br>Dla $X_i\sim N(\mu,\sigma^2)$, $\sigma^2$ znana, $H_0:\mu\le\mu_0$ vs $H_1:\mu&gt;\mu_0$, odrzucasz dla dużego $\bar X$. Próg: $c_\alpha=\mu_0+z_\alpha\sigma/\sqrt{n}$.</div><div class="example"><b>Bernoulli z notatek.</b><br>Dla $H_0:p\le p_0$ vs $H_1:p&gt;p_0$ odrzucasz dla dużej sumy $T=\sum_i X_i$. W dyskretnym przypadku może pojawić się randomizacja γ.</div></div>
 
-<div class="card"><h2>p-value</h2><div class="formula">$$
+<div class="card"><h2>Wartość p (p-value)</h2><p>To najmniejszy poziom istotności, przy którym jeszcze odrzuciłbyś hipotezę zerową.</p><div class="formula">$$
 p_{val}=inf { α : x∈B_α }\\B_α={T(x)&gt;c_α}\\p_{val}=sup_{θ∈H₀} P_θ(T(X)≥T(x_{obs}))
 $$</div></div>
 
 <div class="card"><h2>Dwustronność i UMPU</h2><p>Dla $H_0:\theta=\theta_0$ vs $\theta\ne\theta_0$ test UMP zwykle nie istnieje. W jednoparametrowych rodzinach wykładniczych szuka się wtedy UMPU, czyli najlepszego testu wśród nieobciążonych.</p></div>
 
-<div class="card"><h2>Test LR</h2><div class="scheme"><div class="formula">$$
+<div class="card"><h2>Test ilorazu wiarygodności (LR)</h2><div class="scheme"><div class="formula">$$
 λ(x)= sup_{θ∈Θ₀} l(θ) / sup_{θ∈Θ} l(θ)\\λ(x)&lt;c
 $$</div>Małe λ oznacza: najlepsze dopasowanie pod H₀ jest dużo gorsze od najlepszego dopasowania ogólnie.</div><div class="example"><b>Normalny z notatek.</b><br>Dla $X_i\sim N(\theta,1)$, $H_0:\theta=\theta_0$ vs $H_1:\theta\ne\theta_0$, $\lambda(x)=\exp[-n(\bar X-\theta_0)^2/2]$, więc odrzucasz dla dużego $|\bar X-\theta_0|$.</div></div>
 

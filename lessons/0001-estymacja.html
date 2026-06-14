@@ -33,11 +33,11 @@ $$</div><div class="example"><b>Przykład z notatek: $N(\mu,\sigma^2)$.</b><br>$
 x_p = F_θ^{-1}(p)\\θ = g(x_{p1},…,x_{ps})\\θ̂ = g(x̂_{p1},…,x̂_{ps})
 $$</div><div class="example"><b>Wykładniczy $\operatorname{Exp}(\lambda)$ z notatek.</b><br>$F_\lambda(x)=1-e^{-\lambda x}$. Z równania $F_\lambda(x_p)=p$ dostajesz $\lambda=-\ln(1-p)/x_p$, więc $\hat\lambda=-\ln(1-p)/\hat x_p$.</div></div>
 
-<div class="card"><h2>Plug-in</h2><div class="formula">$$
+<div class="card"><h2>Metoda podstawiania (plug-in)</h2><p>Jeśli parametr jest funkcjonałem nieznanej dystrybuanty, podstaw dystrybuantę empiryczną w miejsce prawdziwej dystrybuanty.</p><div class="formula">$$
 θ = T(F)  →  θ̂ = T(F̂_n)\\θ=∫φ(x)dF(x)  →  θ̂=(1/n)Σφ(X_i)
 $$</div></div>
 
-<div class="card"><h2>MLE</h2><div class="scheme"><ol><li>Napisz $l(\theta)=\prod_i f(x_i;\theta)$.</li><li>Przejdź do $L(\theta)=\ln l(\theta)$.</li><li>Rozwiąż $L'(\theta)=0$.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>$\operatorname{Poisson}(\lambda)$ z notatek.</b><div class="formula">$$
+<div class="card"><h2>Estymator największej wiarygodności (MLE)</h2><div class="scheme"><ol><li>Napisz $l(\theta)=\prod_i f(x_i;\theta)$.</li><li>Przejdź do $L(\theta)=\ln l(\theta)$.</li><li>Rozwiąż $L'(\theta)=0$.</li><li>Sprawdź maksimum i brzegi nośnika.</li></ol></div><div class="example"><b>$\operatorname{Poisson}(\lambda)$ z notatek.</b><div class="formula">$$
 l(λ)=C·λ^{Σx_i}e^{-nλ}\\L(λ)=C_0+(Σx_i)lnλ−nλ\\L′(λ)=Σx_i/λ−n=0\\λ̂=X̄
 $$</div></div><div class="pitfall"><b>Pułapka:</b> MLE nie zawsze jest jednoznaczny. Dla $U(\theta-1/2,\theta+1/2)$ z notatek cały przedział może maksymalizować wiarygodność.</div></div>
 
